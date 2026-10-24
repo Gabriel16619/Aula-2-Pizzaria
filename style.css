@@ -1,0 +1,92 @@
+:root {
+  --tomate: #C9372C;
+  --manjericao: #2F6B3B;
+  --massa: #E9B35A;
+  --farinha: #FFFDF7;
+  --carvao: #2A211C;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: "Nunito", system-ui, sans-serif;
+  color: var(--carvao);
+  background: var(--farinha);
+  line-height: 1.5;
+}
+
+h1, h2, h3 { font-family: "Bevan", Georgia, serif; font-weight: 400; line-height: 1.15; }
+
+/* Header: toalha xadrez de pizzaria */
+.topo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 3rem 8%;
+  color: #fff;
+  background-color: var(--tomate);
+  background-image:
+    linear-gradient(90deg, rgba(255,255,255,.22) 50%, transparent 50%),
+    linear-gradient(rgba(255,255,255,.22) 50%, transparent 50%);
+  background-size: 48px 48px;
+  border-bottom: 8px solid var(--massa);
+}
+.topo__texto { max-width: 34rem; background: var(--tomate); padding: 1.5rem; border-radius: 6px; }
+.topo h1 { font-size: clamp(2rem, 5vw, 3.2rem); margin-bottom: .75rem; }
+.topo p { font-size: 1.1rem; margin-bottom: 1.25rem; }
+.topo__img { width: min(320px, 40vw); height: auto; }
+
+.botao {
+  display: inline-block;
+  padding: .7rem 1.4rem;
+  background: var(--farinha);
+  color: var(--tomate);
+  font-weight: 800;
+  text-decoration: none;
+  border-radius: 999px;
+}
+.botao:hover { background: var(--massa); color: var(--carvao); }
+.botao:focus-visible, a:focus-visible { outline: 3px solid var(--carvao); outline-offset: 3px; }
+
+/* Cardápio */
+.cardapio { padding: 3.5rem 8%; max-width: 1200px; margin: 0 auto; }
+.cardapio h2 { font-size: 2.2rem; color: var(--tomate); }
+.cardapio__nota { margin: .5rem 0 2rem; color: #6a5c52; }
+
+.grade {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.75rem;
+}
+
+.item {
+  background: #fff;
+  border: 2px solid var(--carvao);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.item img { display: block; width: 100%; background: #FBEBC8; padding: 1rem 2rem; }
+.item--doce img { background: #F3D9D2; }
+.item__corpo { padding: 1.1rem 1.25rem 1.4rem; }
+.item h3 { font-size: 1.3rem; margin-bottom: .4rem; }
+.item p { font-size: .98rem; color: #5b4d44; margin-bottom: .9rem; }
+.preco { font-weight: 800; font-size: 1.15rem; color: var(--manjericao); }
+
+/* Footer */
+.rodape {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem 4rem;
+  padding: 2.5rem 8% 1.5rem;
+  background: var(--carvao);
+  color: #f3e9dc;
+  border-top: 8px solid var(--manjericao);
+}
+.rodape h2 { font-size: 1.1rem; color: var(--massa); margin-bottom: .3rem; }
+.rodape__copy { flex-basis: 100%; font-size: .85rem; opacity: .7; margin-top: 1rem; }
+
+@media (max-width: 700px) {
+  .topo { flex-direction: column-reverse; text-align: center; padding: 2rem 6%; }
+  .topo__img { width: 200px; }
+}
